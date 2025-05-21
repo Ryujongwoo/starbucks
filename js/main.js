@@ -1,3 +1,4 @@
+/* 여기 부터
 // console.log('JS');
 // search 클래스 속성이 지정된 요소를 선택한다.
 const searchEl = document.querySelector('.search');
@@ -30,6 +31,7 @@ searchInputEl.addEventListener('blur', function () {
   // 공백으로 지정한다.
   searchInputEl.setAttribute('placeholder', '');
 });
+여기까지 common.js로 이동 */
 
 // badges 클래스 속성이 지정된 요소를 선택한다.
 const badgeEl = document.querySelector('header .badges');
@@ -201,8 +203,9 @@ new Swiper('.awards .mySwiper', {
   },
 });
 
+/* 여기부터터
 // 올해 연도 자동 계산
 const thisYear = document.querySelector('.this-year');
 thisYear.textContent = new Date().getFullYear();
-
+여기까지 common.js로 이동 */
 

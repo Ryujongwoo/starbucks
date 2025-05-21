@@ -1,30 +1,22 @@
-/* common: 프로젝트에 공통적으로 사용되는 스타일 */
+/* 여기부터
 body {
-  /* 검정색 글꼴을 사용하면 촌스러워 보일 수 있으므로 어두운 회색을 사용한다. */
   color: #333333;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
-  /* google font 스타일 추가 후 font-family 속성을 추가한다. */
   font-family: "Nanum Gothic", sans-serif;
-  /* 배지 테스트를 위해서 임시로 body에 높이를 지정한다. */
-  /* height: 6000px; */
 }
 img {
-  /* 이미지는 인라인 속성이기 때문에 아래쪽이 약간 뜨는 현상이 발생되므로 블록 속성으로 변경한다. */
   display: block;
 }
-/* 프로젝트 전체의 하이퍼링크 밑줄을 제거한다. */
 a {
   text-decoration: none;
 }
-/* 공통으로 적용되는 부분을 뽑아내고 header .inner에서 중복되는 부분을 제거한다. */
 .inner {
   width: 1100px;
   margin: 0 auto;
   position: relative;
 }
-/* 공통으로 사용할 버튼 스타일을 정의한다. */
 .btn {
   width: 130px;
   padding: 10px;
@@ -43,7 +35,6 @@ a {
   background-color: #333333;
   color: #ffffff;
 }
-/* 버튼 스타일 추가 */
 .btn.btn--reverse {
   background-color: #333333;
   color: #FFFFFF;
@@ -77,16 +68,13 @@ a {
   background-color: #FFFFFF;
 }
 
-/* scroll-spy 클래스에 공통으로 적용되는 애니메이션 스타일 */
 .back-to-position {
   opacity: 0;
   transition: 1s;
 }
-/* 왼쪽에서 오른쪽으로 나타나는 애니메이션 */
 .back-to-position.to-right {
   transform: translateX(-150px);
 }
-/* 오른쪽에서 왼쪽으로 나타나는 애니메이션 */
 .back-to-position.to-left {
   transform: translateX(150px);
 }
@@ -94,7 +82,6 @@ a {
   opacity: 1;
   transform: translateX(0);
 }
-/* 애니메이션이 동시에 나타나지 않게 지연 시간을 지정한다. */
 .show .back-to-position.delay-0 {
   transition-delay: 0s;
 }
@@ -108,28 +95,17 @@ a {
   transition-delay: 0.9s;
 }
 
-/* header */
 header {
-  /* background-color: royalblue; */
   background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
-  /* position: relative; */
-  /* position: relative는 스크롤시 같이 움직이므로 fixed로 수정한다. */
-  /* relative는 너비를 최대한으로 사용하려고 하지만 absolute와 fixed는 최소한으로 사용하려 한다. */
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 9; /* 넉넉히 큰 값으로 지정 */
+  z-index: 9;
 }
-/* 헤더의 메인 메뉴 부분만 높이를 지정해야 하므로 자식 선택자로 변경한다. */
 header > .inner {
-  /* width: 1100px; */
   height: 120px;
-  /* margin: 0 auto; */ /* 가운데 정렬 */
-  /* background-color: orange; */
-  /* position: relative; */ /* 로고 이미지의 위치상의 부모로 지정한다. */
 }
-/* 로고 이미지를 inner 클래스 요소 내부에 수직 가운데 배치한다. */
 header .logo {
   position: absolute;
   height: 75px;
@@ -137,10 +113,7 @@ header .logo {
   bottom: 0;
   left: 0;
   margin: auto 0;
-  /* display: none; */
 }
-
-/* sub menu */
 header .sub-menu {
   display: flex;
   position: absolute;
@@ -154,7 +127,6 @@ header .sub-menu ul.menu {
 header .sub-menu ul.menu li {
   position: relative;
 }
-/* li 태그 사이에 구분선 삽입 */
 header .sub-menu ul.menu li::before {
   content: "";
   display: block;
@@ -166,24 +138,19 @@ header .sub-menu ul.menu li::before {
   bottom: 0;
   margin: auto 0;
 }
-/* 첫 번째 구분선만 제거 */
 header .sub-menu ul.menu li:first-child::before {
   display: none;
 }
 header .sub-menu ul.menu li a {
-  /* background-color: white; */
   font-size: 12px;
   padding: 11px 16px;
-  /* a 태그는 인라인 요소라 padding이 정확히 지정되도록 display 속성을 지정한다. */
   display: block;
   color: #656565;
 }
 header .sub-menu ul.menu li a:hover {
   color: #000000;
 }
-
 header .sub-menu .search {
-  /* background-color: red; */
   height: 34px;
   position: relative;
 }
@@ -198,27 +165,24 @@ header .sub-menu .search input {
   background-color: #ffffff;
   color: #777777;
   font-size: 12px;
-  transition: width 0.4s; /* 가로 너비만 전환효과 지정 */
+  transition: width 0.4s;
 }
 header .sub-menu .search input:focus {
   width: 190px;
   border-color: #669900;
 }
 header .sub-menu .search .material-icons {
-  height: 24px; /* material-icons 폰트 크기 */
+  height: 24px;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 5px;
   margin: auto 0;
-  /* 아이콘이 사라지는 것을 자연스럽게 하기 위해 전환 효과를 지정한다. */
   transition: 0.4s;
 }
-/* 검색 창이 포커스를 가지면 지정되는 focused 클래스 속성이 지정된 요소(아이콘)를 사라지게 한다. */
 header .sub-menu .search.focused .material-icons {
   opacity: 0;
 }
-
 header .main-menu {
   display: flex;
   position: absolute;
@@ -226,23 +190,19 @@ header .main-menu {
   right: 0;
   z-index: 1;
 }
-header .main-menu .item {
-
-}
 header .main-menu .item .item__name {
-  padding: 10px 20px 34px 20px; /* 위 부터 시계 방향 */
+  padding: 10px 20px 34px 20px;
   font-family: Arial, sans-serif;
   font-size: 13px;
 }
-/* item 클래스에 마우스를 올렸을때 메뉴가 나와야 하므로 item 클래스에 hover를 지정한다. */
 header .main-menu .item:hover .item__name {
   background-color: #2c2a29;
   color: #669900;
-  border-radius: 6px 6px 0 0; /* 좌측 상단 부터 시계 방향 */
+  border-radius: 6px 6px 0 0;
 }
 header .main-menu .item .item__contents {
   width: 100%;
-  position: fixed; /* 주변에 상관없이 뷰포트를 기준으로 배치한다. */
+  position: fixed;
   left: 0;
   display: none;
 }
@@ -250,11 +210,8 @@ header .main-menu .item:hover .item__contents {
   display: block;
 }
 header .main-menu .item .item__contents .contents__menu {
-  /* background-color: red; */
   background-color: #2c2a29;
-  /* height: 200px; */
 }
-/* contents__menu 클래스에 ul 태그가 2개 있기때문에 자식 선택자로 선택한다. */
 header .main-menu .item .item__contents .contents__menu > ul {
   display: flex;
   padding: 20px 0;
@@ -267,9 +224,6 @@ header .main-menu .item .item__contents .contents__menu > ul > li h4 {
   font-size: 14px;
   color: #ffffff;
 }
-header .main-menu .item .item__contents .contents__menu > ul > li ul {
-  
-}
 header .main-menu .item .item__contents .contents__menu > ul > li ul li {
   padding: 5px 0;
   font-size: 12px;
@@ -280,8 +234,6 @@ header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover {
   color: #669900;
 }
 header .main-menu .item .item__contents .contents__texture {
-  /* background-color: orange; */
-  /* height: 100px; */
   padding: 26px 0;
   font-size: 12px;
   background-image: url("../images/main_menu_pattern.jpg");
@@ -289,42 +241,35 @@ header .main-menu .item .item__contents .contents__texture {
 header .main-menu .item .item__contents .contents__texture h4 {
   color: #999999;
   font-weight: 700;
-  /* font-size: 12px; */
 }
 header .main-menu .item .item__contents .contents__texture p {
   color: #669900;
   margin: 4px 0 14px;
-  /* font-size: 12px; */
 }
 
 header .badges {
   position: absolute;
-  /* header에 position 속성이 없으므로 position: relative를 지정한다. */
   top: 132px;
   right: 12px;
 }
 header .badges .badge {
   border-radius: 10px;
-  overflow: hidden; /* 이미지가 둥글게 깎은 부분을 넘어가지 않도록 추가한다. */
+  overflow: hidden;
   margin-bottom: 12px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
+여기부터 여기까지 common.css로 이동 */
 
-/* section - visual */
 .visual {
-  /* header > .inner의 높이값 */
   margin-top: 120px;
   background-image: url("../images/visual_bg.jpg");
   background-position: center;
 }
 .visual .inner {
-  /* .inner의 영향을 받기때문에 필요한 속성만 코딩하면 된다. */
   height: 646px;
-  /* background-color: orange; */
 }
 .visual .inner .title {
-  /* .inner에 position: relative가 지정되어 있다. */
   position: absolute;
   top: 88px;
   left: -10px;
@@ -359,15 +304,10 @@ header .badges .badge {
   bottom: 0;
   right: 275px;
 }
-
 .visual .inner .fade-in {
   opacity: 0;
 }
 
-/* section - notice */
-.notice {
-  
-}
 .notice .notice-line {
   position: relative;
 }
@@ -389,7 +329,6 @@ header .badges .badge {
 }
 .notice .notice-line .inner {
   height: 62px;
-  /* border: 2px solid red; */ /* 공지사항 내용 영역 표시 */
   display: flex;
 }
 .notice .notice-line .inner .inner__left {
@@ -407,10 +346,8 @@ header .badges .badge {
 }
 .notice .notice-line .inner .inner__left .swiper.mySwiper {
   height: 62px;
-  /* background-color: orange; */
-  flex-grow: 1; /* 영역이 최대로 늘어난다. */
+  flex-grow: 1;
 }
-
 .notice .notice-line .inner .inner__left .swiper.mySwiper .swiper-slide {
   height: 62px;
   display: flex;
@@ -419,7 +356,6 @@ header .badges .badge {
 .notice .notice-line .inner .inner__left .swiper.mySwiper .swiper-slide a {
   color: #FFFFFF;
 }
-
 .notice .notice-line .inner .inner__left .notice-line__more {
   width: 62px;
   height: 62px;
@@ -453,7 +389,6 @@ header .badges .badge {
 .notice .notice-line .inner .inner__right .toggle-promotion .material-icons {
   font-size: 30px;
 }
-
 .notice .promotion {
   height: 693px;
   background-color: #F6F5EF;
@@ -464,22 +399,14 @@ header .badges .badge {
 .notice .promotion.hide {
   height: 0;
 }
-
 .notice .promotion .swiper.mySwiper {
-  width: calc(819px * 3 + 20px); /* 너비 계산 함수 */
-  /* width: calc(100% - 50px); */ /* 이런 계산도 가능하다. */
+  width: calc(819px * 3 + 20px);
   height: 553px;
-  /* background-color: orange; */
-  /* text-align: center; */
-  /* font-size: 200px; */
   position: absolute;
   top: 40px;
   left: 50%;
-  /* swiper 컨테이너 중앙에 위치시키기 위해 swiper 컨테이너의 절반 너비만큼 왼쪽 여백을 지정한다. */
-  /* margin-left: -1238.5px; */
   margin-left: calc((819px * 3 + 20px) / -2);
 }
-
 .notice .promotion .swiper.mySwiper .swiper-wrapper .swiper-slide {
   opacity: 0.5;
   transition: opavity 1s;
@@ -497,13 +424,11 @@ header .badges .badge {
   right: 0;
   margin: auto;
 }
-
-.notice .promotion .swiper-pagination { /* 요새는 자동으로 아래 가운데로 된다. */
+.notice .promotion .swiper-pagination {
   bottom: 40px;
   left: 0;
   right: 0;
 }
-/* swiper-pagination-bullet 클래스는 개발자 도구에서 확인할 수 있다. */
 .notice .promotion .swiper-pagination .swiper-pagination-bullet {
   background-color: transparent;
   background-image: url('../images/promotion_slide_pager.png');
@@ -515,7 +440,6 @@ header .badges .badge {
 .notice .promotion .swiper-pagination .swiper-pagination-bullet:last-child {
   margin-right: 0px;
 }
-/* swiper-pagination-bullet-active 클래스는 개발자 도구에서 확인할 수 있다. */
 .notice .promotion .swiper-pagination .swiper-pagination-bullet-active {
   background-image: url('../images/promotion_slide_pager_on.png');
 }
@@ -547,7 +471,6 @@ header .badges .badge {
   color: #FFFFFF;
 }
 
-/* section - rewards */
 .rewards {
   position: relative;
 }
@@ -567,7 +490,6 @@ header .badges .badge {
   top: 0;
   right: 0;
 }
-/* .inner에는 position: relative;가 공통 속성으로 지정되어 있다. */
 .rewards .inner {
   background-image: url("../images/rewards.jpg");
   height: 241px;
@@ -575,7 +497,7 @@ header .badges .badge {
 .rewards .btn-group {
   width: 250px;
   display: flex;
-  flex-wrap: wrap; /* 지정된 너비보다 요소의 너비 합이 크면 줄바꿈 허용 */
+  flex-wrap: wrap;
   position: absolute;
   bottom: 24px;
   right: 0;
@@ -591,7 +513,6 @@ header .badges .badge {
   flex-grow: 1;
 }
 
-/* section - youtube */
 .youtube {
   height: 700px;
   background-color: #333333;
@@ -599,7 +520,7 @@ header .badges .badge {
   overflow: hidden;
 }
 .youtube .youtube__area {
-  width: 1920px; /* FHD - 1920 * 1080 */
+  width: 1920px;
   background-color: orange;
   position: absolute;
   left: 50%;
@@ -607,13 +528,12 @@ header .badges .badge {
   top: 50%;
   margin-top: calc(1920px * 9 / 16 / -2);
 }
-/* 스타일을 위한 요소는 가능한 css에서 처리하기 위해 before를 사용했다. */
 .youtube .youtube__area::before {
   content: "";
-  display: block; /* before는 inline 요소이므로 block 요소로 만든다. */
+  display: block;
   width: 100%;
   height: 0;
-  padding-top: 56.25%; /* 16:9 비율 */
+  padding-top: 56.25%;
 }
 .youtube .youtube__cover {
   background-image: url("../images/video_cover_pattern.png");
@@ -624,7 +544,6 @@ header .badges .badge {
   width: 100%;
   height: 100%;
 }
-
 #player {
   width: 100%;
   height: 100%;
@@ -632,10 +551,8 @@ header .badges .badge {
   top: 0;
   left: 0;
 }
-
 .youtube .inner {
   height: 700px;
-  /* background-color: royalblue; */
 }
 .youtube .inner .floating1 {
   position: absolute;
@@ -647,26 +564,16 @@ header .badges .badge {
   top: 350px;
   left: 150px;
 }
-/* .youtube .inner .floating3를 잘라서 section - season-product 영역으로 이동한다. */
-/*
-.youtube .inner .floating3 {
-  position: absolute;
-  bottom: -200px;
-  right: 0;
-}
-*/
 
-/* section - season-product */
 .season-product {
   background-image: url("../images/season_product_bg.jpg");
 }
 .season-product .inner {
   height: 400px;
 }
-/* .youtube .inner .floating3를 .season-product .inner .floating3로 수정한다. */
 .season-product .inner .floating3 {
   position: absolute;
-  top: -200px; /* bottom을 top으로 수정 */
+  top: -200px;
   right: 0;
 }
 .season-product .inner .text-group {
@@ -680,11 +587,7 @@ header .badges .badge {
 .season-product .inner .text-group .description {
   margin-bottom: 15px;
 }
-.season-product .inner .text-group .more {
 
-}
-
-/* section - reserve-coffee */
 .reserve-coffee {
   background-image: url("../images/reserve_bg.jpg");
 }
@@ -707,7 +610,6 @@ header .badges .badge {
   right: 0;
 }
 
-/* section - pick-your-favorite */
 .pick-your-favorite {
   background-image: url("../images/favorite_bg.jpg");
   background-repeat: no-repeat;
@@ -719,7 +621,6 @@ header .badges .badge {
   padding: 110px 0;
 }
 .pick-your-favorite .inner .text-group {
-  /* background-color: orange; */
   width: 362px;
   display: flex;
   flex-wrap: wrap;
@@ -733,7 +634,6 @@ header .badges .badge {
   margin-bottom: 40px;
 }
 
-/* section - reserve-store */
 .reserve-store {
   background-image: url("../images/reserve_store_bg.jpg");
   background-repeat: no-repeat;
@@ -756,7 +656,7 @@ header .badges .badge {
 .reserve-store .inner .medal .back {
   width: 334px;
   height: 334px;
-  backface-visibility: hidden; /* 뒷면 감춤 */
+  backface-visibility: hidden;
   transition: 1s;
 }
 .reserve-store .inner .medal .front {
@@ -781,7 +681,6 @@ header .badges .badge {
   margin: auto;
 }
 
-/* section - find-store */
 .find-store {
   background-image: url("../images/find_store_bg.jpg");
 }
@@ -824,7 +723,6 @@ header .badges .badge {
   margin-bottom: 20px;
 }
 
-/* section - awards */
 .awards {
   background-color: #272727;
 }
@@ -865,7 +763,7 @@ header .badges .badge {
   color: #333333;
 }
 
-/* footer */
+/* 여기부터
 footer {
   background-color: #272727;
   border-top: 1px solid #333333;
@@ -885,7 +783,6 @@ footer .inner .menu li::before {
   width: 3px;
   height: 3px;
   background-color: #555555;
-  /* absolute와 fixed는 position이 자동으로 block으로 바뀐다. */
   position: absolute;
   top: 0;
   bottom: 0;
@@ -900,7 +797,7 @@ footer .inner .menu li a {
   font-size: 12px;
   font-weight: 700;
   padding: 15px;
-  display: block; /* 선택 되는 영역을 늘여주기 위해 지정 */
+  display: block;
 }
 footer .inner .menu li a.green {
   color: #669900;
@@ -938,8 +835,9 @@ footer .inner .copyright {
 footer .inner .logo {
   margin: 30px auto 0;
 }
+여기부터 여기까지 common.css로 이동 */
 
-#to-top { /* 1 */
+#to-top {
   width: 42px;
   height: 42px;
   background-color: #333333;
